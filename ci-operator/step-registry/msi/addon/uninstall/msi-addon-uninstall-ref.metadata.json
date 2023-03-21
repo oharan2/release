@@ -1,5 +1,5 @@
 {
-	"path": "msi/addon-install/msi-addon-install-ref.yaml",
+	"path": "msi/addon/uninstall/msi-addon-uninstall-ref.yaml",
 	"owners": {
 		"approvers": [
 			"myakove",
