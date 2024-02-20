@@ -32,24 +32,14 @@ for operator_obj in "${OPERATOR_ARRAY[@]}"; do
         exit 1
     fi
 
-    # If install_namespace not defined, and USE_DEFAULTS is set to false: exit.
+    # If install_namespace not defined, use DEFAULT_OPERATOR_INSTALL_NAMESPACE.
     if [[ -z "${operator_install_namespace}" ]]; then
-        if [[ "${USE_DEFAULTS}" == "true" ]]; then
-            operator_install_namespace="openshift-operators"
-        else
-            echo "ERROR: install_namespace is not defined"
-            exit 1
-        fi
+        operator_install_namespace="${DEFAULT_OPERATOR_INSTALL_NAMESPACE}"
     fi
 
-    # If channel is not defined, and USE_DEFAULTS is set to false: exit.
+    # If channel is not defined, use DEFAULT_OPERATOR_CHANNEL.
     if [[ -z "${operator_channel}" ]]; then
-        if [[ "${USE_DEFAULTS}" == "true" ]]; then
-            operator_channel="!default"
-        else
-            echo "ERROR: channel is not defined"
-            exit 1
-        fi
+        operator_channel="${DEFAULT_OPERATOR_CHANNEL}"
     fi
 
     # If the channel is "!default", find the default channel of the operator
@@ -63,11 +53,9 @@ for operator_obj in "${OPERATOR_ARRAY[@]}"; do
         fi
     fi
 
-    # If source is not defined, and USE_DEFAULTS is set: use "redhat-operators".
+    # If source is not defined, use DEFAULT_OPERATOR_SOURCE.
     if [[ -z "${operator_source}" ]]; then
-        if [[ "${USE_DEFAULTS}" == "true" ]]; then
-            operator_source="redhat-operators"
-        fi
+        operator_source="${DEFAULT_OPERATOR_SOURCE}"
     fi
 
     # If "!install" in target_namespaces, use the install namespace
