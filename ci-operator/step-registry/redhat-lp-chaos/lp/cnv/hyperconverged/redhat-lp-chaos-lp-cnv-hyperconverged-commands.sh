@@ -10,8 +10,10 @@ set -euxo pipefail; shopt -s inherit_errexit
         --arg hcoName "${LPC_LP_CNV__HCO__NAME}" \
         --arg hcoNamespace "${LPC_LP_CNV__HCO__NS}" \
         '
-        .metadata.name = $hcoName |
-        .metadata.namespace = $hcoNamespace
+            .metadata|=(
+                .name=$hcoName |
+                .namespace=$hcoNamespace
+            )
         '
 } 0<<'EOF' | oc apply -f -
 apiVersion: hco.kubevirt.io/v1beta1
