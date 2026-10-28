@@ -63,7 +63,6 @@ tests:
       DR__RP__CR_COMP_NAME: lp-chaos--OCP
       TELEMETRY_GROUP: ocp5.1-nightly--aws
     post:
-    - ref: mpiit-data-router-reporter
     - chain: ipi-aws-post
     - ref: send-results-to-reportportal
     pre:
@@ -94,7 +93,6 @@ tests:
       POWER_OUTAGE_TIMEOUT: "1200"
       TELEMETRY_GROUP: ocp5.1-nightly--aws
     post:
-    - ref: mpiit-data-router-reporter
     - chain: ipi-aws-post
     - ref: send-results-to-reportportal
     pre:

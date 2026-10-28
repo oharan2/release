@@ -109,8 +109,6 @@ tests:
         ]
       USER_TAGS: |
         scenario gitops
-    post:
-    - ref: mpiit-data-router-reporter
     test:
     - ref: install-operators
     - ref: gitops-operator-tests

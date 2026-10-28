@@ -60,8 +60,6 @@ tests:
       REPORTPORTAL_CMP: Quay-lp-interop
       USER_TAGS: |
         scenario quay
-    post:
-    - ref: mpiit-data-router-reporter
     test:
     - ref: quay-tests-deploy-quay-aws-s3
     - ref: quay-tests-test-quay-e2e
@@ -108,8 +106,6 @@ tests:
       REPORTPORTAL_CMP: Quay-lp-interop
       USER_TAGS: |
         scenario quay
-    post:
-    - ref: mpiit-data-router-reporter
     test:
     - ref: quay-tests-deploy-quay-aws-s3
     - ref: quay-tests-test-quay-e2e
